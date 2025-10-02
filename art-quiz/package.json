@@ -9,6 +9,7 @@
     "watch": "webpack --watch",
     "format": "prettier --write ./src",
     "lint": "npx eslint ./src",
+    "stylelint": "npx stylelint '**/*.css'",
     "ci:format": "prettier --check ./src",
     "create": "node create-folder-template.js"
   },
@@ -24,6 +25,10 @@
     "mini-css-extract-plugin": "^2.9.4",
     "prettier": "3.6.2",
     "style-loader": "^4.0.0",
+    "stylelint": "^16.24.0",
+    "stylelint-config-clean-order": "^7.0.0",
+    "stylelint-config-standard": "^39.0.0",
+    "stylelint-prettier": "^5.0.3",
     "ts-loader": "^9.5.4",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.45.0",
