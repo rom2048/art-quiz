@@ -1,1 +1,1 @@
-console.log("Hello This is a Typescript project.");
+console.log('Hello This is a Typescript project.');
