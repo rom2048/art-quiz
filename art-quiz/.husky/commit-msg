@@ -1,0 +1,2 @@
+cd art-quiz
+npx --no -- commitlint --edit "$i"

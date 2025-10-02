@@ -1,0 +1,1 @@
+cd art-quiz && npx lint-staged

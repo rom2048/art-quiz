@@ -11,10 +11,13 @@
     "lint": "npx eslint ./src",
     "stylelint": "npx stylelint '**/*.css'",
     "ci:format": "prettier --check ./src",
+    "prepare": "cd .. && husky art-quiz/.husky",
     "create": "node create-folder-template.js"
   },
   "author": "rom2048",
   "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "css-loader": "6.11",
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",
@@ -22,6 +25,8 @@
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-unicorn": "^61.0.2",
     "html-webpack-plugin": "^5.6.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
     "mini-css-extract-plugin": "^2.9.4",
     "prettier": "3.6.2",
     "style-loader": "^4.0.0",
