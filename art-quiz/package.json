@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "description": "ArtQuiz is a quiz application for knowledge of masterpieces of painting and their authors.",
+  "name": "art-quiz",
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "start": "webpack serve",
+    "watch": "webpack --watch",
+    "format": "prettier --write ./src",
+    "ci:format": "prettier --check ./src"
+  },
+  "author": "rom2048",
+  "devDependencies": {
+    "css-loader": "6.11",
+    "html-webpack-plugin": "^5.6.4",
+    "mini-css-extract-plugin": "^2.9.4",
+    "prettier": "3.6.2",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "webpack": "^5.102.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  }
+}
