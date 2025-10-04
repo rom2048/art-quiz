@@ -9,7 +9,7 @@
     "watch": "webpack --watch",
     "format": "prettier --write ./src",
     "lint": "npx eslint ./src",
-    "stylelint": "npx stylelint '**/*.css'",
+    "stylelint": "npx stylelint **/*.css",
     "ci:format": "prettier --check ./src",
     "prepare": "cd .. && husky art-quiz/.husky",
     "create": "node create-folder-template.js"
