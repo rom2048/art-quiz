@@ -1,0 +1,27 @@
+.start-page {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  background: url('../../assets/start-page-bg.jpg') center/cover no-repeat;
+}
+
+.settings-button {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
