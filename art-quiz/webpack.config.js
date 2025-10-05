@@ -1,8 +1,7 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -12,10 +11,15 @@ const config = {
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
+    assetModuleFilename: 'assets/[hash][ext][query]',
   },
   devServer: {
     open: true,
     host: 'localhost',
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
   },
   devtool: 'inline-source-map',
   plugins: [
@@ -23,8 +27,20 @@ const config = {
       template: './src/index.html',
       favicon: './src/assets/favicon.ico',
     }),
-    // Add your plugins here
-    // Learn more about plugins from https://webpack.js.org/configuration/plugins/
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/data',
+          to: 'data',
+          noErrorOnMissing: true,
+        },
+        {
+          from: 'src/assets/paintings',
+          to: 'assets/paintings',
+          noErrorOnMissing: true,
+        },
+      ],
+    }),
   ],
   module: {
     rules: [
@@ -52,12 +68,24 @@ const config = {
         type: 'asset/source',
       },
       {
-        test: /\.(eot|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: 'asset',
+        test: /\.json$/i,
+        type: 'json',
+        parser: {
+          parse: JSON.parse,
+        },
       },
-
-      // Add your rules for custom modules here
-      // Learn more about loaders from https://webpack.js.org/loaders/
+      {
+        test: /\.(eot|ttf|woff|woff2|png|jpg|gif|jpeg|webp)$/i,
+        type: 'asset',
+        generator: {
+          filename: 'assets/images/[hash][ext][query]',
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 8 * 1024,
+          },
+        },
+      },
     ],
   },
   resolve: {
