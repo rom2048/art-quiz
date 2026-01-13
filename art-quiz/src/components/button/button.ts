@@ -14,7 +14,6 @@ export class Button extends Component<'button'> {
       },
     });
     if (parameters.svgContent) {
-      this.element.classList.remove(style['button']);
       this.element.insertAdjacentHTML('beforeend', parameters.svgContent);
     }
   }
