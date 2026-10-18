@@ -3,21 +3,46 @@ import { Component } from '../component';
 import style from './button.css';
 
 export class Button extends Component<'button'> {
-  constructor(parameters: ButtonOptions) {
+  private onClickHandler: ((event: MouseEvent) => void) | null = null;
+
+  constructor({ text = '', variant = 'primary', className = '', attributes, icon, ariaLabel }: ButtonOptions) {
     super({
       tag: 'button',
-      className: [style['button'], parameters.className].join(' '),
-      text: parameters.text,
+      className: [style['button'], style[`button--${variant}`], className].join(' '),
+      text: icon ? '' : text,
       attributes: {
         type: 'button',
-        ...parameters.attributes,
+        ...(ariaLabel ? { 'aria-label': ariaLabel } : {}),
+        ...attributes,
       },
     });
-    if (parameters.svgContent) {
-      this.element.insertAdjacentHTML('beforeend', parameters.svgContent);
+    if (icon && ariaLabel) {
+      this.element.innerHTML = `
+      ${icon}
+      <span class=${style['visually-hidden']}>${ariaLabel}</span>
+      `;
+      // this.element.insertAdjacentHTML('beforeend', icon);
     }
   }
-  public setClickHandler(hanler: (event: MouseEvent) => void): void {
-    this.element.addEventListener('click', hanler);
+  public onClick(handler: (event: MouseEvent) => void): this {
+    if (this.onClickHandler) {
+      this.element.removeEventListener('click', this.onClickHandler);
+    }
+    this.onClickHandler = handler;
+    this.element.addEventListener('click', handler);
+
+    return this;
+  }
+
+  public setDisabled(disabled: boolean): void {
+    this.element.disabled = disabled;
+  }
+
+  public override destroy(): void {
+    if (this.onClickHandler) {
+      this.element.removeEventListener('click', this.onClickHandler);
+      this.onClickHandler = null;
+    }
+    super.destroy();
   }
 }

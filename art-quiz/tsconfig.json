@@ -9,7 +9,7 @@
     "target": "es2024",
     "allowJs": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "*": ["*", "src/"]
     }

@@ -1,0 +1,39 @@
+.main-menu {
+  position: relative;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 34px;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  background: transparent;
+}
+
+.main-menu-action {
+  width: 100%;
+  max-width: 268px;
+  height: 56px;
+}
+
+@media (width >= 768px) {
+  .main-menu {
+    display: grid;
+    grid-template-columns: auto auto;
+    flex-direction: row;
+    gap: 165px 20px;
+    place-content: center center;
+  }
+
+  .main-menu > h1 {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .main-menu-action {
+    width: 287px;
+  }
+}

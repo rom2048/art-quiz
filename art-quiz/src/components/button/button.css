@@ -1,32 +1,92 @@
-button {
+.button {
   cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* border: 1.5px solid #fff; */
+
+  /* border-radius: 60px; */
+
+  font-family: Gilroy, sans-serif;
+
+  /* font-size: 1.375rem; */
+
+  /* font-weight: 500; */
+  color: #fff;
+
+  /* letter-spacing: -1.15px; */
+
   background-color: transparent;
+
   transition:
     color 0.3s ease,
     background-color 0.3s ease;
 }
 
-.button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.button-primary {
+  padding: 14px 28px;
+  border-radius: 50px;
+  color: #000;
+  background: #fff;
+}
 
-  border: 1.5px solid #fff;
-  border-radius: 60px;
+.button-secondary {
+  padding: 18px 28px;
+  border: 2px solid rgb(255 255 255 / 60%);
+  border-radius: 50px;
 
-  font-size: 1.375rem;
-  font-weight: 500;
-  color: #fff;
-  letter-spacing: -1.15px;
+  font-size: 18px;
+
+  backdrop-filter: blur(2px);
+}
+
+.button-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  border: none;
+
+  background: transparent;
+}
+
+.button-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: #fff;
 }
 
 .button:not(:disabled):active {
   background-color: #ffbca2;
 }
 
+.visually-hidden {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  white-space: nowrap;
+}
+
 @media (hover: hover) {
-  .button:not(:disabled):hover {
+  /* .button:not(:disabled):hover {
     color: #000;
     background-color: #fff;
+  } */
+
+  .button-secondary:hover {
+    border-color: #fff;
+    background: rgb(255 255 255 / 15%);
   }
 }

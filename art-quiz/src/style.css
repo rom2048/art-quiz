@@ -26,8 +26,40 @@ body {
   background: #000;
 }
 
-button {
-  display: inline-flex;
-  padding: 0;
-  border: 0;
+.app {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: #000;
+
+  transition: backgroud-image 0.3s ease;
+}
+
+.app-with-bg {
+  background-image: url('./assets/start-page-bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.screen-container {
+  position: relative;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  width: 100%;
+
+  background: transparent;
+}
+
+@media (width >= 768px) {
+  .app-with-bg {
+    background-position: top;
+  }
 }

@@ -13,6 +13,7 @@
   line-height: 3.75rem;
   color: white;
   letter-spacing: -0.91px;
+  white-space: nowrap;
 }
 
 .simple-art-title::before {
@@ -27,10 +28,37 @@
   height: 62px;
 
   opacity: 0.7;
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166 62"><circle cx="31" cy="31" r="30.5" stroke="white" stroke-opacity="1" fill="transparent"/><circle cx="62" cy="31" r="30.5" stroke="white" stroke-opacity="1" fill="transparent"/></svg>');
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166 62" preserveAspectRatio="none"><circle cx="31" cy="31" r="30.5" stroke="white" stroke-opacity="1" fill="transparent"/><circle cx="62" cy="31" r="30.5" stroke="white" stroke-opacity="1" fill="transparent"/></svg>');
   background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .art-word {
   transition: color 0.3s ease;
+}
+
+@media (width >= 520px) and (width <= 767px) {
+  .simple-art-title {
+    gap: 16px;
+    height: 120px;
+    padding-left: 24px;
+    font-size: 5.25rem;
+  }
+
+  .simple-art-title::before {
+    height: 120px;
+  }
+}
+
+@media (width >= 768px) {
+  .simple-art-title {
+    gap: 22px;
+    height: 164px;
+    padding-left: 34px;
+    font-size: 7.125rem; /* ~114px */
+  }
+
+  .simple-art-title::before {
+    height: 164px;
+  }
 }
